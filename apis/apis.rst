@@ -1,8 +1,8 @@
 .. _apis:
 
---------------------
-APIs: Python Example
---------------------
+------------------
+APIs: Python Flask
+------------------
 
 *The estimated time to complete this lab is 90 minutes.*
 
