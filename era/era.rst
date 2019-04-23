@@ -6,10 +6,6 @@ Era
 
 *The estimated time to complete this lab is 60 minutes.*
 
-.. raw:: html
-
-  <iframe width="640" height="360" src="https://www.youtube.com/embed/AbPMhTQ40Mw?rel=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 Overview
 ++++++++
 
@@ -498,41 +494,3 @@ Cleanup
 .. raw:: html
 
   <strong><font color="red">Once your lab completion has been validated, PLEASE do your part to remove any unneeded VMs to ensure resources are available for all users on your shared cluster.</font></strong>
-
-**IF** you **DO NOT** intend on completing either the :ref:`cloud_native_lab` or :ref:`calm_win` labs, **THEN** you should delete the *Initials*-**Era**, *Initials*-**DBServer**, and *Initials*-**DBServer-Clone** VMs deployed as part of this exercise.
-
-**IF** you **DO** intend on completing either the :ref:`cloud_native_lab` or :ref:`calm_win` labs, **THEN** you should only delete the *Initials*-**DBServer** and *Initials*-**DBServer-Clone** VMs deployed as part of this exercise. Both VMs should be removed via the Era web interface but will still need to be powered off and deleted through Prism.
-
-
-Getting Connected
-+++++++++++++++++
-
-Have a question about **Nutanix Era**? Please reach out to the resources below:
-
-+---------------------------------------------------------------------------------------------------+
-|  Era Product Contacts                                                                             |
-+============================================+======================================================+
-|  Slack Channel                             |  #era                                                |
-+--------------------------------------------+------------------------------------------------------+
-|  Product Manager                           |  Jeremy Launier, jeremy.launier@nutanix.com          |
-+--------------------------------------------+------------------------------------------------------+
-|  Product Marketing Manager                 |  Maryam Sanglaji, maryam.sanglaji@nutanix.com        |
-+--------------------------------------------+------------------------------------------------------+
-|  Technical Marketing Engineer              |  Mike McGhee, michael.mcghee@nutanix.com             |
-+--------------------------------------------+------------------------------------------------------+
-|  Engineering                               |                                                      |
-+--------------------------------------------+------------------------------------------------------+
-|  Solutions Architect Americas - Era        |  Murali Sriram, murali.sriram@nutanix.com            |
-+--------------------------------------------+------------------------------------------------------+
-|  Solutions Architect Americas - Oracle/Era |  Mandar Surkund, mandar.surkund@nutanix.com          |
-+--------------------------------------------+------------------------------------------------------+
-|  Solutions Architect Americas - SQL/Era    |  Mike Matthews, mike.matthews@nutanix.com            |
-+--------------------------------------------+------------------------------------------------------+
-|  Solutions Architect APAC - Oracle/Era     |  Kim Hock Cheok, kimhock.cheok@nutanix.com           |
-+--------------------------------------------+------------------------------------------------------+
-|  Solutions Architect APAC - Oracle/Era     |  Predee Kajonpai, predee.kajonpa@nutanix.com         |
-+--------------------------------------------+------------------------------------------------------+
-|  Solutions Architect EMEA - Oracle/Era     |  Olivier Parcollet, olivier.parcollet@nutanix.com    |
-+--------------------------------------------+------------------------------------------------------+
-|  Solutions Architect EMEA - Oracle/Era     |  Karsten Zimmermann, karsten.zimmermann@nutanix.com  |
-+--------------------------------------------+------------------------------------------------------+
