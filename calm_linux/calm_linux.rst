@@ -156,28 +156,29 @@ Variables can be used in scripts executed against objects using the **@@{variabl
 
 #. Click **Save**.
 
-Adding a Downloadable Image
-+++++++++++++++++++++++++++
+..
+  Adding a Downloadable Image
+  +++++++++++++++++++++++++++
 
-VMs in AHV can be deployed based on a disk image. With Calm, you can select a Downloadable Image via a URI. During the application deployment, Prism Central will automatically download and create the image specified. If an image with the same URI already exists on the cluster, it will skip the download and use the local image instead.
+  VMs in AHV can be deployed based on a disk image. With Calm, you can select a Downloadable Image via a URI. During the application deployment, Prism Central will automatically download and create the image specified. If an image with the same URI already exists on the cluster, it will skip the download and use the local image instead.
 
-#. From the top toolbar, click **Configuration > Downloadable Image Configuration** :fa:`plus-circle` and fill out the following fields:
+  #. From the top toolbar, click **Configuration > Downloadable Image Configuration** :fa:`plus-circle` and fill out the following fields:
 
-   - **Package Name** - CentOS_7_Cloud
-   - **Description** - CentOS 7 Cloud Image
-   - **Image Name** - CentOS_7_Cloud
-   - **Image Type** - Disk Image
-   - **Architecture** - X86_64
-   - **Source URI** - http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud.qcow2
-   - **Product Name** - CentOS
-   - **Product Version** - 7
+     - **Package Name** - CentOS_7_Cloud
+     - **Description** - CentOS 7 Cloud Image
+     - **Image Name** - CentOS_7_Cloud
+     - **Image Type** - Disk Image
+     - **Architecture** - X86_64
+     - **Source URI** - http://download.nutanix.com/calm/CentOS-7-x86_64-GenericCloud.qcow2
+     - **Product Name** - CentOS
+     - **Product Version** - 7
 
-   .. note::
-      This Generic Cloud image is the same that's used for the majority of the Nutanix Pre-Seeded Application Blueprints.
+     .. note::
+        This Generic Cloud image is the same that's used for the majority of the Nutanix Pre-Seeded Application Blueprints.
 
-   .. figure:: images/6.png
+     .. figure:: images/6.png
 
-#. Click **Save**, and then **Back**.
+  #. Click **Save**, and then **Back**.
 
 Creating Services
 +++++++++++++++++
@@ -213,7 +214,7 @@ Creating the Database Service
 
      This will use the Runtime **User_initials** variable you previously provided to prepend the VM name with your initials. It will also use built-in macros to provide the array index (for scale out services) and a time stamp.
 
-   - **Image** - CentOS_7_Cloud
+   - **Image** - CentOS7.qcow2
    - **Device Type** - Disk
    - **Device Bus** - SCSI
    - Select **Bootable**
