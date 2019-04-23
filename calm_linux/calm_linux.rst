@@ -352,7 +352,7 @@ You will now follow similar steps to define a web server service.
    - **Cloud** - Nutanix
    - **OS** - Linux
    - **VM Name** - @@{User_initials}@@-WebServer-@@{calm_array_index}@@
-   - **Image** - CentOS_7_Cloud
+   - **Image** - CentOS7.qcow2
    - **Device Type** - Disk
    - **Device Bus** - SCSI
    - Select **Bootable**
@@ -509,7 +509,7 @@ To take advantage of a scale out web tier, your application needs to be able to 
    - **Cloud** - Nutanix
    - **OS** - Linux
    - **VM Name** - @@{User_initials}@@-HAProxy-@@{calm_array_index}@@
-   - **Image** - CentOS\_7\_Cloud
+   - **Image** - CentOS7.qcow2
    - **Device Type** - Disk
    - **Device Bus** - SCSI
    - Select **Bootable**
