@@ -6,9 +6,6 @@ Karbon
 
 *The estimated time to complete this lab is 60 minutes.*
 
-.. raw:: html
-
-  <iframe width="640" height="360" src="https://www.youtube.com/embed/JjzrgisTYdY?rel=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Overview
 ++++++++
@@ -512,35 +509,3 @@ Cleanup
 .. raw:: html
 
   <strong><font color="red">Once your lab completion has been validated, PLEASE do your part to remove any unneeded VMs to ensure resources are available for all users on your shared cluster.</font></strong>
-
-**IF** you **DO NOT** intend on completing either the :ref:`cloud_native_lab` or :ref:`epoch` labs, **THEN** you should delete the *Initials*-**karbon** cluster deployed as part of this exercise. This can be done directly from the Karbon web interface.
-
-**IF** you **DO** intend on completing either the :ref:`cloud_native_lab` or :ref:`epoch` labs, **THEN** you should leave your *Initials*-**karbon** cluster in place.
-
-Getting Connected
-+++++++++++++++++
-
-Have a question about **Nutanix Karbon**? Please reach out to the resources below:
-
-+-------------------------------------------------------------------------------------+
-|  Karbon Product Contacts                                                            |
-+================================+====================================================+
-|  Slack Channel                 |  #karbon                                           |
-+--------------------------------+----------------------------------------------------+
-|  Product Manager               |  Denis Guyadeen, dguyadeen@nutanix.com             |
-+--------------------------------+----------------------------------------------------+
-|  Product Marketing Manager     |  Maryam Sanglaji, maryam.sanglaji@nutanix.com      |
-+--------------------------------+----------------------------------------------------+
-|  Technical Marketing Engineer  |  Dwayne Lessner, dwayne@nutanix.com                |
-+--------------------------------+----------------------------------------------------+
-|  NEXT Community Forum          |  https://next.nutanix.com/kubernetes-containers-30 |
-+--------------------------------+----------------------------------------------------+
-
-Additional Kubernetes Training Resources
-++++++++++++++++++++++++++++++++++++++++
-
-- `Introduction to Kubernetes <https://www.edx.org/course/introduction-to-kubernetes>`_ - Free introductory training by The Linux Foundation
-
-- `Play with Kubernetes <https://training.play-with-kubernetes.com/>`_ - Free introductory training and lab environment by Docker
-
-- `Scalable Microservices with Kubernetes <https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615>`_ - Free intermediate training by Google
