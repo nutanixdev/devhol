@@ -16,10 +16,11 @@
    :hidden:
 
    apis/apis
+   apis-csharp/lab
+   apis-php/intro
    calm_linux/calm_linux
    era/era
    karbon/karbon
-   buckets/buckets
 
 .. toctree::
    :maxdepth: 2
