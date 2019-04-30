@@ -6,29 +6,25 @@ Accessing Your Cluster
 
 Clusters used for the **Hands on Labs** run within the Nuanix Hosted POC environment, hosted in the Nutanix PHX and RTP datacenters.
 
-In order to access these resources you must be connected to one of the (2) VPN options listed below. Connection to a virtual desktop environment **is not necessary**.
+To ensure a consistent and management experience for all lab attendees, today's lab sessions will be using Nutanix Frame.  This allows us to run full desktops and applications within a browser session without the need to install any software on your local laptops.
 
-.. note::
+Frame Credentials
+.................
 
-  Certain labs leverage a Windows VM with pre-installed tools to provide a controlled environment. It is **highly recommended** that you connect to these Windows VMs using the Microsoft Remote Desktop client rather than the VM console launched via Prism. An RDP connection will allow you to copy and paste between your device and the VMs.
+By the time you attend Developer Day, you should have received an email instructions for access Nutanix Frame.  Please use the details in this email to login to your Frame desktop.
 
+Cluster/Hosted POC Credentials
+..............................
+
+In order to access these resources you must be connected to one of the (2) VPN options listed below.
 
 Attendee VPN
 ............
 
-Log in to https://xlv-uswest1.nutanix.com using the following credentials:
+Using the pre-installed Pulse VPN client, log in as follows:
 
+- **Connect to** - https://xlv-uswest1.nutanix.com
 - **Username** - Refer to :ref:`clusterassignments` for your **Lab VPN Username**
-- **Password** - techX2019!
+- **Password** - apiX2019!
 
-Under **Client Application Sessions**, click **Start** to the right of **Pulse Secure** to download the client.
-
-Install and open **Pulse Secure**.
-
-Add a connection:
-
-- **Type** - Policy Secure (UAC) or Connection Server
-- **Name** - HPOC VPN
-- **Server URL** - https://xlv-uswest1.nutanix.com
-
-Connect using the provided credentials.
+Continue to **Your Cluster Details** on the left side of this page to obtain cluster credentials.
