@@ -6,7 +6,7 @@ Accessing Your Cluster
 
 Clusters used for the **Hands on Labs** run within the Nuanix Hosted POC environment, hosted in the Nutanix PHX and RTP datacenters.
 
-To ensure a consistent and management experience for all lab attendees, today's lab sessions will be using Nutanix Frame.  This allows us to run full desktops and applications within a browser session without the need to install any software on your local laptops.
+To ensure a consistent and manageable experience for all lab attendees, today's lab sessions will be using Nutanix Frame.  This allows us to run full desktops and applications within a browser session and without the need to install any software on your local laptops.
 
 Frame Credentials
 .................
