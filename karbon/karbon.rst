@@ -6,7 +6,6 @@ Karbon
 
 *The estimated time to complete this lab is 60 minutes.*
 
-
 Overview
 ++++++++
 
@@ -77,7 +76,7 @@ It is **highly recommended** that you connect to the Tools VM using the Microsof
 Creating a Karbon Cluster
 +++++++++++++++++++++++++
 
-In this exercise you will create a production ready Kubernetes cluster with Nutanix Karbon.
+In this exercise you will create a production-ready Kubernetes cluster with Nutanix Karbon.
 
 #. In **Prism Central**, select :fa:`bars` **> Services > Karbon**.
 
@@ -95,69 +94,36 @@ In this exercise you will create a production ready Kubernetes cluster with Nuta
 
      If at any point your Karbon session times out, you can log in again using your Prism Central **admin** credentials.
 
-#. To begin provisioning a Karbon cluster, click **+ Create Cluster**.
+#. Click **Download Centos** to download the required OS image to Karbon.
+
+#. Once the download has completed, click **+ Create Kubernetes Cluster**.
+
+#. On the **Recommended Configurations** tab, select **Development Cluster** and click **Next**.
+
+   This will define a single worker node, master node, and etcd node.
+
+   Worker nodes are responsible for running containers deployed onto the Kubernetes cluster. Each Worker node runs the `kubelet <https://kubernetes.io/docs/admin/kubelet/>`_ and `kube-proxy <https://kubernetes.io/docs/admin/kube-proxy/>`_ services.
+
+   The Master node controls the Kubernetes cluster and provides the `kube-apiserver <https://kubernetes.io/docs/admin/kube-apiserver/>`_, `kube-controller-manager <https://kubernetes.io/docs/admin/kube-controller-manager/>`_. and `kube-scheduler <https://kubernetes.io/docs/admin/kube-scheduler/>`_ services.
+
+  `etcd <https://coreos.com/etcd/>`_ nodes provide a distributed key-value store which Kubernetes uses to manage cluster state. In this lab, you will configure a single etcd node.
+
+  .. figure:: images/karbon-configurations.png
 
 #. On the **Name and Environment** tab, fill out the following fields:
 
    - **Name** - *Initials*-karbon
    - **Cluster** - Select *Your Nutanix cluster*
-   - **Kubernetes Version** - 1.10.3
-   - **Host OS Image** - centos
-
-   .. raw:: html
-
-     <strong><font color="red">Do NOT use the 1.8.x Kubernetes Version selected by default.</font></strong>
+   - **Kubernetes Version** - 1.13.4 (Default)
+   - **Host OS Image** - centos7.5.1804-ntnx-0.0 (Default)
 
    .. figure:: images/3.png
 
-   .. note::
-
-     Your cluster has been pre-staged with a compatible CentOS image for use with Karbon.
-
-     Karbon currently supports CentOS 7.5.1804 and Ubuntu 16.04 and requires that these images be downloaded directly from Nutanix.
-
-     To stage another cluster with the supported CentOS image, add http://download.nutanix.com/karbon/0.8/acs-centos7.qcow2 as "acs-centos".
-
-     To stage another cluster with the supported Ubuntu image, add http://download.nutanix.com/karbon/0.8/acs-ubuntu1604.qcow2 as "acs-ubuntu".
-
 #. Click **Next**.
 
-   Next you will define the number of container host VMs and compute requirements, starting with **Worker** VMs.
+   Next you can view the resources defined for each type of container host VMs (worker, master, and etcd). If desired, you are able to edit the resource allocations by clicking **Edit** next to each type.
 
-   Worker nodes are responsible for running containers deployed onto the Kubernetes cluster. Each Worker node runs the `kubelet <https://kubernetes.io/docs/admin/kubelet/>`_ and `kube-proxy <https://kubernetes.io/docs/admin/kube-proxy/>`_ services.
-
-   .. raw:: html
-
-     <strong><font color="red">For the purposes of this non-production exercise you will reduce the amount of memory consumed by default by each worker and etcd VM.</font></strong>
-
-#. On the **Worker Configuration** tab, fill out the following fields:
-
-   - **Number of Workers** - 3 (Default)
-   - **Memory** - 6 GiB
-   - **Size** - 120 GiB (Default)
-   - **VCPU** - 4 (Default)
-
-   .. figure:: images/4.png
-
-#. Click **Next**.
-
-   Next you will define the compute requirements for the **Master** and **etcd** nodes.
-
-   The Master node controls the Kubernetes cluster and provides the `kube-apiserver <https://kubernetes.io/docs/admin/kube-apiserver/>`_, `kube-controller-manager <https://kubernetes.io/docs/admin/kube-controller-manager/>`_. and `kube-scheduler <https://kubernetes.io/docs/admin/kube-scheduler/>`_ services.
-
-   The `etcd <https://coreos.com/etcd/>`_ nodes provide a distributed key-value store which Kubernetes uses to manage cluster state, similar to how Nutanix leverages Zookeeper.
-
-#. On the **Master Configuration** tab, fill out the following fields:
-
-   - **Master Resources > Memory** - 4 GiB (Default)
-   - **Master Resources > Size** - 120 GiB (Default)
-   - **Master Resources > VCPU** - 2 (Default)
-   - **etcd Resources > Number of VMs** - 3 (Default)
-   - **etcd Resources > Memory** - 4 GiB
-   - **etcd Resources > Size** - 40GiB (Default)
-   - **etcd Resources > VCPU** - 2 (Default)
-
-   .. figure:: images/5.png
+   For this lab, you can leave the default values.
 
 #. Click **Next**.
 
@@ -170,7 +136,6 @@ In this exercise you will create a production ready Kubernetes cluster with Nuta
 #. On the **Network** tab, fill out the following fields:
 
    - **Network Provider** - Flannel (Default)
-   - **VM Network** - Primary (Default)
    - **Service CIDR** - 172.19.0.0/16 (Default)
    - **Pod CIDR** - 172.20.0.0/16 (Default)
 
@@ -180,10 +145,11 @@ In this exercise you will create a production ready Kubernetes cluster with Nuta
 
 #. On the **Storage Class** tab, fill out the following fields:
 
-   - **Storage Class Name** - default-storageclass-*Initials*
-   - **Prism Element Cluster** - *Your Nutanix cluster*
+   - **Storage Class Name** - default-storageclass-*Initials* (initials in lowercase)
+   - **Prism Element Cluster** - *Your Nutanix Cluster IP*
    - **Nutanix Cluster Username** - admin
-   - **Nutanix Cluster Password** - techX2019!
+   - **Nutanix Cluster Password** - *Your Nutanix Cluster Password*
+   - **Reclaim Policy** - Delete (Default)
    - **Storage Container Name** - Default
    - **File System** - ext4 (Default)
 
@@ -201,7 +167,7 @@ In this exercise you will create a production ready Kubernetes cluster with Nuta
 
    .. figure:: images/9.png
 
-   The Karbon cluster has finished provisioning when the **Status** of the cluster is **Running**.
+   The Karbon cluster has finished provisioning when the **Status** of the cluster is **Healthy**.
 
    .. figure:: images/10.png
 
@@ -224,9 +190,11 @@ In this exercise you will use ``kubectl`` to perform basic operations against yo
 
 #. From within your *Initials*\ **-Windows-ToolsVM** VM, browse to **Prism Central** and open **Karbon**.
 
-#. Select your *Initials*\ **-karbon** cluster and click **Download kubeconfig**.
+#. Select your *Initials*\ **-karbon** cluster and click **Actions > Download kubeconfig**.
 
    .. figure:: images/12.png
+
+#. Click **Download**, then click **Close**.
 
 #. Open **PowerShell**.
 
@@ -243,14 +211,14 @@ In this exercise you will use ``kubectl`` to perform basic operations against yo
      cd ~
      mkdir .kube
      cd .kube
-     mv ~\Downloads\kubectl* ~\.kube\config
+     mv ~\Downloads\*kubectl* ~\.kube\config
      kubectl get nodes
 
    .. note::
 
      By default, ``kubectl`` looks like a file named ``config`` in the ``~/.kube`` directory. Other locations can be specified using environment variables or by setting the ``--kubeconfig`` flag.
 
-#. Verify that the output of the last command shows 1 master node and 3 worker nodes as **Ready**.
+#. Verify that the output of the last command shows 1 master node and 1 worker node as **Ready**.
 
 #. Next you will check the versions of the Kubernetes client and server by running the following command:
 
@@ -281,7 +249,9 @@ Now that you have successfully run commands against your Kubernetes cluster usin
    - https://raw.githubusercontent.com/nutanixworkshops/ts2019/master/karbon/mysql-deployment.yaml
    - https://raw.githubusercontent.com/nutanixworkshops/ts2019/master/karbon/wordpress-deployment.yaml
 
-.. note::
+   Kubernetes depends on YAML files to provision applications and define dependencies. YAML files are a human-readable text-based format for specifying configuration information. This application requires two YAML files to be stored in the **wordpress** directory.
+
+  .. note::
 
   If attempting to download the script results in an Access Denied error, log out of any AWS accounts from your browser or open the download link in **Incognito (Private Browsing)** mode.
 
@@ -300,7 +270,7 @@ Now that you have successfully run commands against your Kubernetes cluster usin
 
    .. figure:: images/13.png
 
-#. Under **spec: > type:**, change the value from **LoadBalancer** to **NodePort** and save the file. This change is required as Karbon does not yet support LoadBalancer.
+#. Under **spec: > type:**, change the value from **LoadBalancer** to **NodePort** and save the file. (Using a LoadBalancer is outside the scope of this lab.)
 
    .. figure:: images/14.png
 
@@ -395,7 +365,7 @@ You have confirmed the Wordpress application and its MySQL database are running.
 
    - **Site Title** - *Initials*\ 's Karbon Blog
    - **Username** - admin
-   - **Password** - nutanix/4u
+   - **Password** - Nut@nixLabs19
    - **Your Email** - noreply@nutanix.com
 
 #. Click **Install Wordpress**.
@@ -409,7 +379,7 @@ You have confirmed the Wordpress application and its MySQL database are running.
 Exploring Logging & Visualization
 +++++++++++++++++++++++++++++++++
 
-Karbon provides a plug-in architecture to continually add additional functionality on top of vanilla Kubernetes. The firdst plug-in Karbon will provide is an integrated logging services stack called **EFK**, short for `Elasticsearch <https://github.com/elastic/elasticsearch>`_, `fluentd <https://www.fluentd.org/>`_ and `Kibana <https://github.com/elastic/kibana>`_.
+Karbon provides a plug-in architecture to continually add additional functionality on top of vanilla Kubernetes. The firsts plug-ins Karbon provides are an integrated logging services stack called **EFK**, short for `Elasticsearch <https://github.com/elastic/elasticsearch>`_, `fluentd <https://www.fluentd.org/>`_ and `Kibana <https://github.com/elastic/kibana>`_; and monitoring and alerting with Prometheus.
 
 Elasticsearch is a real-time, distributed, and scalable search engine which allows for full-text and structured search, as well as analytics. It is commonly used to index and search through large volumes of log data, but can also be used to search many different kinds of documents.
 
@@ -446,26 +416,6 @@ Fluentd is a popular data collector that runs on all Kubernetes nodes to tail co
 Coming Soon!
 ++++++++++++
 
-**The upcoming Karbon 1.0 GA is ready for production workloads.** Additional features and functionality include:
-
-- Pre-configured Production and Dev/Test cluster profiles to further simplify provisioning
-
-- Multi-Master VM support to provide an HA Kubernetes control plane
-
-  - Active/passive Multi-Master HA out of the box
-
-  - Support for 3rd party load balancers
-
-- The ability to add/remove worker node(s) to deployed clusters
-
-- Cluster level monitoring & alerting using `Prometheus <https://prometheus.io/docs/introduction/overview/>`_, an open-source systems monitoring and alerting system with an embedded time-series database originally developed by SoundCloud.
-
-- New Nutanix Container Storage Interface (CSI) Driver Support
-
-  - `CSI <https://kubernetes-csi.github.io/docs/>`_ is the standard for exposing arbitrary block and file storage storage systems to Kubernetes
-
-  - Support for Nutanix Volumes and Nutanix Files
-
 - Upgrades & Patching
 
   - Non-disruptive Karbon upgrades
@@ -473,8 +423,6 @@ Coming Soon!
   - Immutable OS upgrades of all cluster nodes
 
 - Support for native `Kubernetes RBAC <https://kubernetes.io/docs/reference/access-authn-authz/rbac/>`_
-
-- Rotating 24-hour key-based access to cluster to minimize malicious activity
 
 - Darksite Support
 
@@ -485,11 +433,7 @@ Takeaways
 
 What are the key things you should know about **Nutanix Karbon**?
 
-- Any Nutanix AHV customer is a potential target for Karbon, including:
-
-  - Customers that perform internal development
-  - Customers who have or plan to adopt CI/CD
-  - Customers with Digital Transformation or Application Modernization initiatives
+- Karbon is a great use case for internal development, CI/CD, digital transformation or application modernization initiatives
 
 - The primary benefit of Karbon is reduced CapEX and OpEX of managing and operating Kubernetes environments, reducing learning curve and enabling DevOps/ITOps teams to quickly support their development teams to start deploying containerized workloads.
 
@@ -499,13 +443,15 @@ What are the key things you should know about **Nutanix Karbon**?
 
 - Karbon can provide additional functionality to Kubernetes over time through its plugin architecture.
 
-- Karbon will be a certified Kubernetes distribution and has passed the `Kuberentes Conformance Certification <https://landscape.cncf.io/landscape=certified-kubernetes-hosted&selected=nutanix-karbon>`_.
+- Karbon is a certified Kubernetes distribution and has passed the `Kuberentes Conformance Certification <https://landscape.cncf.io/landscape=certified-kubernetes-hosted&selected=nutanix-karbon>`_.
 
 - Karbon is listed on the official `Kubernetes Solutions <https://kubernetes.io/docs/setup/pick-right-solution/>`_ and `Cloud Native Computing Foundation Landscape <https://landscape.cncf.io/category=certified-kubernetes-hosted&selected=nutanix-karbon>`_ pages.
 
-Cleanup
-+++++++
+Additional Kubernetes Training Resources
+++++++++++++++++++++++++++++++++++++++++
 
-.. raw:: html
+- `Introduction to Kubernetes <https://www.edx.org/course/introduction-to-kubernetes>`_ - Free introductory training by The Linux Foundation
 
-  <strong><font color="red">Once your lab completion has been validated, PLEASE do your part to remove any unneeded VMs to ensure resources are available for all users on your shared cluster.</font></strong>
+- `Play with Kubernetes <https://training.play-with-kubernetes.com/>`_ - Free introductory training and lab environment by Docker
+
+- `Scalable Microservices with Kubernetes <https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615>`_ - Free intermediate training by Google
