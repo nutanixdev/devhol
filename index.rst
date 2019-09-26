@@ -15,9 +15,11 @@
    :name: _dev_labs
    :hidden:
 
+   cloudinit/cloudinit
    apis/apis
    apis-csharp/lab
    apis-php/intro
+   apis-pythonreporter/apis-pythonreporter
    calm_linux/calm_linux
    era/era
    karbon/karbon
